@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimitar Panev - Skills</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+            animation: slideInUp 1s ease-in-out;
+        }
+
+        .skills-list li {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .skills-list li:before {
+            content: "▶ ";
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Contact</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="languages.html">Languages</a></li>
+            <li><a href="skills.html" class="active">Skills</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Skills</h1>
+
+        <ul class="skills-list">
+            <li>Hardware and software knowledge</li>
+            <li>Windows, Linux, Mac proficiency</li>
+            <li>C# Programming (Intermediate)</li>
+            <li>Python Programming (Beginner)</li>
+            <li>Web Development (JavaScript, HTML5, CSS)</li>
+            <li>Networking skills</li>
+            <li>Adobe Photoshop</li>
+            <li>Windows Active Directory</li>
+            <li>Virtual Machine Management</li>
+        </ul>
+    </div>
+</body>
+
+</html>
