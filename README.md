@@ -1,6 +1,6 @@
-# Online CV - Dimitar Panev
+# Autobiography - Dimitar Panev
 
-This repository contains the code for my online curriculum vitae (CV), showcasing my professional experience, education, skills, and contact information.
+This repository contains the code for my online autobiography, showcasing my professional experience, education, skills, and contact information.
 
 ## Key Features
 
