@@ -5,9 +5,9 @@ This repository contains the code for my online autobiography, showcasing my pro
 ## Key Features
 
 * **Contact:** Details my contact information, including email and LinkedIn.
-* **Experience:** Highlights my professional history, including roles at the University of Library Studies and Information Technologies and F.O.A. [cite: 2, 3, 4, 5, 6]
+* **Experience:** Highlights my professional history, including roles at the University of Library Studies and Information Technologies and F.O.A.
 * **Education:** Outlines my academic background at the University of Library Studies and Information Technologies and 97 SOU "Bratya Miladinovi".
-* **Skills:** Details my technical and soft skills, including programming languages, web development, and computer skills. [cite: 6, 7, 8]
+* **Skills:** Details my technical and soft skills, including programming languages, web development, and computer skills.
 * **Languages:** Lists my language proficiencies.
 * **Certificates:** Shows the courses and certifications I've obtained.
 
