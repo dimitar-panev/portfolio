@@ -92,7 +92,89 @@ nav a.active {
     background-color: #555;
     color: #fff;
 }
+.experience-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 3px solid #666;
+    animation: fadeInUp 1s ease-in-out;
+}
 
+.job-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.company {
+    font-style: italic;
+    color: #999;
+}
+
+.skills-section {
+    margin-top: 20px;
+}
+
+.skills-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.skills-list {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+.education-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 3px solid #666;
+    animation: fadeInRight 1s ease-in-out;
+}
+
+.degree {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.school {
+    font-style: italic;
+    color: #999;
+}
+.certificate-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #555;
+    animation: bounceIn 1s ease-in-out;
+}
+
+.certificate-item:last-child {
+    border-bottom: none;
+}
+.language-item {
+    margin-bottom: 15px;
+    animation: zoomIn 1s ease-in-out;
+}
+
+.language {
+    font-weight: bold;
+}
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    animation: slideInUp 1s ease-in-out;
+}
+
+.skills-list li {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.skills-list li:before {
+    content: "▶ ";
+    color: #fff;
+}
 @keyframes fadeIn {
     from {
         opacity: 0;
