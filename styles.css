@@ -1,304 +1,534 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #121212;
-    color: #f0f0f0;
-    line-height: 1.6;
+/* === GOOGLE FONTS IMPORT === */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700&display=swap');
+
+/* === CSS VARIABLES (THEME) === */
+:root {
+    --font-primary: 'Roboto', Arial, sans-serif;
+    --font-headings: 'Montserrat', Arial, sans-serif;
+
+    --color-bg-primary: #121212;    /* Deep dark background */
+    --color-bg-secondary: #1e1e1e;  /* Slightly lighter card/container background */
+    --color-bg-tertiary: #2a2a2a;   /* Even lighter, for elements like skill badges or distinct items */
+    --color-bg-nav: #181818;        /* Darker nav background */
+
+    --color-text-primary: #e0e0e0;  /* Primary light text */
+    --color-text-secondary: #b3b3b3;/* Muted text */
+    --color-text-headings: #ffffff; /* Bright white for headings */
+
+    --color-accent-primary: #00aeff;   /* Main accent color (blue from screenshot for headings) */
+    --color-accent-primary-darker: #008cdd; /* Darker shade for hover */
+
+    --color-accent-experience: #4CAF50; /* Greenish for experience items */
+    --color-accent-education: #FFC107;  /* Yellowish for education items */
+    --color-accent-languages: #9C27B0;  /* Purplish for language items */
+
+    --color-border: #444444;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+    --color-shadow-light: rgba(0, 0, 0, 0.15);
+
+    --border-radius-small: 5px;
+    --border-radius-medium: 8px;
+    --border-radius-large: 12px;
 }
 
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #222;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 1s ease-in-out;
-}
-.profile-img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 20px;
-    animation: fadeIn 1s ease-in-out;
-}
-.contact-info {
-    list-style: none;
+/* === GLOBAL STYLES & RESETS === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
     padding: 0;
-    animation: slideInLeft 1s ease-in-out;
 }
-.contact-info li {
-    margin-bottom: 10px;
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
 }
-.contact-info a {
-    color: grey;
-    text-decoration: none;
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    line-height: 1.7;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+    padding-top: 80px; /* Adjust if nav height changes significantly */
 }
-h1,
-h2,
+
+/* === LAYOUT CONTAINER === */
+.container {
+    max-width: 900px; /* Slightly wider for more content */
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 8px 25px var(--color-shadow);
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0; /* Initial state for fadeIn */
+}
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    color: var(--color-text-headings);
+    margin-bottom: 20px; /* Default bottom margin */
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5rem; /* Responsive font size */
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    position: relative;
+}
+h1::after { /* Main Page Title Accent */
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-accent-primary);
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    padding-bottom: 10px;
+    position: relative;
+    font-weight: 600;
+}
+h2::after { /* Section Title Accent */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent-primary);
+    margin-top: 8px;
+    border-radius: 2px;
+}
+
 h3 {
-    color: #fff;
-    border-bottom: 2px solid #555;
-    padding-bottom: 5px;
+    font-size: 1.4rem;
+    color: var(--color-text-primary); /* Slightly less prominent than H1/H2 */
+    font-weight: 600;
+}
+/* No ::after for h3 by default, can be added specifically */
+
+p {
+    margin-bottom: 15px;
+    color: var(--color-text-secondary);
+}
+p:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    color: var(--color-accent-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--color-accent-primary-darker);
+    text-decoration: underline;
+}
+
+/* === NAVIGATION === */
+header { /* Wrapper for nav */
+    background-color: var(--color-bg-nav);
+    padding: 0 20px; /* Padding for content inside header */
+    position: fixed; /* Changed to fixed for better UX */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--color-shadow);
+    height: 70px; /* Fixed height */
+    display: flex;
+    align-items: center; /* Vertically center nav items */
 }
 
 nav {
-    background-color: #333;
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    width: 100%;
+    max-width: 1200px; /* Max width for nav content */
+    margin: 0 auto; /* Center nav content */
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Or flex-start / flex-end */
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 10px; /* Spacing between nav items */
 }
+
 nav ul li a {
-    padding: 10px 15px;
-    color: white;
+    padding: 12px 18px;
+    color: var(--color-text-primary);
+    font-family: var(--font-headings);
+    font-weight: 500;
     text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s ease, color 0.3s ease, border-bottom-color 0.3s ease;
+    border-bottom: 3px solid transparent; /* For active state alignment */
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 nav ul li a:hover {
-    background-color: #f0f0f0;
-    color: black;
+    color: var(--color-accent-primary);
+    border-bottom-color: var(--color-accent-primary-darker);
+    text-decoration: none;
 }
 
 nav ul li a.active {
-    font-weight: bold;
-    color: black;
-    border-bottom: 2px solid black;
-}
-nav a {
-    color: #f0f0f0;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    color: var(--color-accent-primary);
+    border-bottom-color: var(--color-accent-primary);
+    font-weight: 700;
 }
 
-nav a:hover,
-nav a.active {
-    background-color: #555;
-    color: #fff;
+/* === CONTACT PAGE SPECIFICS (index.html) === */
+.profile-img {
+    display: block;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 30px auto;
+    border: 5px solid var(--color-border);
+    animation: zoomIn 0.7s ease-out 0.3s forwards;
+    opacity: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.experience-item {
-    margin-bottom: 20px;
-    padding: 15px;
-    border-left: 3px solid #666;
-    animation: fadeInUp 1s ease-in-out;
-}
-
-.job-title {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.company {
-    font-style: italic;
-    color: #999;
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--color-accent-primary);
 }
 
-.skills-section {
-    margin-top: 20px;
+.contact-info {
+    list-style: none;
+    animation: slideInLeft 0.7s ease-out 0.5s forwards;
+    opacity: 0;
+    margin-top: 30px;
+}
+.contact-info li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+.contact-info li i { /* Font Awesome Icons */
+    margin-right: 12px;
+    color: var(--color-accent-primary);
+    font-size: 1.3em;
+    width: 25px; /* Ensure icons align */
+    text-align: center;
+}
+.contact-info a {
+    color: var(--color-text-secondary); /* Keep link color consistent with other text for subtlety */
+    font-weight: 500;
+}
+.contact-info a:hover {
+    color: var(--color-accent-primary);
 }
 
-.skills-title {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.skills-list {
-    list-style-type: disc;
-    margin-left: 20px;
-}
+/* === ITEM STYLING (Experience, Education) === */
+.experience-item,
 .education-item {
-    margin-bottom: 20px;
-    padding: 15px;
-    border-left: 3px solid #666;
-    animation: fadeInRight 1s ease-in-out;
+    margin-bottom: 35px;
+    padding: 25px;
+    border-left-width: 5px;
+    border-left-style: solid;
+    background-color: var(--color-bg-tertiary);
+    border-radius: 0 var(--border-radius-medium) var(--border-radius-medium) 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+    box-shadow: 0 4px 8px var(--color-shadow-light);
 }
+.experience-item { border-left-color: var(--color-accent-experience); }
+.education-item { border-left-color: var(--color-accent-education); }
 
-.degree {
-    font-weight: bold;
+.experience-item h2, .education-item h2 { /* Job title, Degree */
+    font-size: 1.6rem; /* Overriding general H2 size if needed for items */
     margin-bottom: 5px;
+    color: var(--color-text-headings);
+}
+.experience-item h2::after, .education-item h2::after { /* Remove general H2 accent for these */
+    display: none;
 }
 
-.school {
+.experience-item .company, .education-item .school {
     font-style: italic;
-    color: #999;
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+    font-weight: 500;
 }
-.certificate-item {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-bottom: 1px solid #555;
-    animation: bounceIn 1s ease-in-out;
-}
-
-.certificate-item:last-child {
-    border-bottom: none;
-}
-.language-item {
-    margin-bottom: 15px;
-    animation: zoomIn 1s ease-in-out;
+.experience-item p, .education-item p { /* Date paragraph */
+    color: var(--color-text-secondary);
+    margin-bottom: 10px;
+    font-size: 0.95rem;
 }
 
-.language {
-    font-weight: bold;
+/* Skills within Experience Item */
+.experience-item .skills-section {
+    margin-top: 20px;
+    padding-left: 10px;
 }
-.skills-list {
+.experience-item .skills-section h3 { /* skills-title */
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.experience-item .skills-section ul { /* skills-list */
+    list-style-type: disc; /* Or use custom icons */
+    margin-left: 20px;
+    color: var(--color-text-secondary);
+}
+.experience-item .skills-section ul li {
+    margin-bottom: 8px;
+}
+
+
+/* === LANGUAGES PAGE SPECIFICS (using <dl>) === */
+.language-entry {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--color-bg-tertiary);
+    border-left: 5px solid var(--color-accent-languages);
+    border-radius: 0 var(--border-radius-medium) var(--border-radius-medium) 0;
+    animation: fadeInUp 0.7s ease-out 0.2s forwards;
+    opacity: 0;
+    box-shadow: 0 4px 8px var(--color-shadow-light);
+}
+.language-entry dt { /* Language name */
+    font-family: var(--font-headings);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--color-text-headings);
+    margin-bottom: 8px;
+}
+.language-entry dd { /* Proficiency details */
+    margin-left: 0; /* Reset browser default for <dd> */
+    margin-bottom: 6px;
+    color: var(--color-text-secondary);
+}
+.language-entry dd:last-child {
+    margin-bottom: 0;
+}
+
+/* === SKILLS PAGE SPECIFICS === */
+.skill-category { /* Wrapper for category title and list */
+    margin-bottom: 40px;
+    animation: fadeIn 0.8s ease-out forwards; /* Animate category block */
+    opacity: 0;
+}
+.skill-category:nth-child(odd) { animation-delay: 0.1s; }
+.skill-category:nth-child(even) { animation-delay: 0.2s; }
+
+.skill-category h2 { /* Already styled by global H2, ensure it's what you want */
+    margin-bottom: 20px; /* Space between category title and skills grid */
+}
+
+ul.skills-list { /* The grid for skills */
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    animation: slideInUp 1s ease-in-out;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Adjusted minmax */
+    grid-gap: 20px; /* Increased gap */
+    /* Animation applied to items individually for better effect */
 }
 
-.skills-list li {
-    background-color: #333;
-    padding: 10px;
-    border-radius: 5px;
+ul.skills-list li {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+    padding: 15px 20px; /* Increased padding */
+    border-radius: var(--border-radius-small);
+    transition: transform 0.25s ease-out, background-color 0.25s ease-out, box-shadow 0.25s ease-out;
+    font-weight: 500;
+    animation: slideInUpItem 0.5s ease-out forwards; /* Item animation */
+    opacity: 0; /* Initial state for item animation */
+    display: flex; /* To align icon/bullet with text */
+    align-items: center;
+}
+/* Staggered animation for list items (example for up to 10 items) */
+ul.skills-list li:nth-child(1) { animation-delay: 0.1s; }
+ul.skills-list li:nth-child(2) { animation-delay: 0.15s; }
+ul.skills-list li:nth-child(3) { animation-delay: 0.2s; }
+ul.skills-list li:nth-child(4) { animation-delay: 0.25s; }
+ul.skills-list li:nth-child(5) { animation-delay: 0.3s; }
+ul.skills-list li:nth-child(6) { animation-delay: 0.35s; }
+/* Add more if needed, or use JS for more complex staggering */
+
+
+ul.skills-list li::before { /* Custom bullet */
+    content: "◈"; /* Different bullet, or use Font Awesome */
+    color: var(--color-accent-primary);
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+/* If using Font Awesome icons instead:
+ul.skills-list li i {
+    color: var(--color-accent-primary);
+    margin-right: 10px;
+    font-size: 1em;
+}
+ul.skills-list li::before { content: none; }
+*/
+
+ul.skills-list li:hover {
+    transform: translateY(-4px) scale(1.02); /* More dynamic hover */
+    background-color: var(--color-accent-primary); /* Highlight with accent color */
+    color: var(--color-bg-primary); /* Dark text on accent bg */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+ul.skills-list li:hover::before { /* Change bullet color on hover if needed */
+    color: var(--color-bg-primary);
 }
 
-.skills-list li:before {
-    content: "▶ ";
-    color: #fff;
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    background-color: var(--color-bg-nav); /* Same as nav for consistency */
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--color-border);
 }
+footer p { margin-bottom: 0; }
+
+
+/* === KEYFRAME ANIMATIONS === */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInRight {
-    from {
-        transform: translateX(50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes zoomIn {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes slideInUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+@keyframes slideInUpItem { /* Specific for skill list items for less aggressive slide */
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% { transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); }
+    0% { opacity: 0; transform: scale3d(.3, .3, .3); }
+    20% { transform: scale3d(1.1, 1.1, 1.1); }
+    40% { transform: scale3d(.9, .9, .9); }
+    60% { opacity: 1; transform: scale3d(1.03, 1.03, 1.03); }
+    80% { transform: scale3d(.97, .97, .97); }
+    100% { opacity: 1; transform: scale3d(1, 1, 1); }
+}
 
-    0%,
-    20%,
-    40%,
-    60%,
-    80%,
-    100% {
-        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+
+/* === MEDIA QUERIES (RESPONSIVENESS) === */
+@media (max-width: 992px) {
+    .container {
+        margin: 30px 20px;
+        padding: 25px;
     }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.6rem; }
+}
 
-    0% {
-        opacity: 0;
-        -webkit-transform: scale3d(.3, .3, .3);
-        transform: scale3d(.3, .3, .3);
-    }
-
-    20% {
-        -webkit-transform: scale3d(1.1, 1.1, 1.1);
-        transform: scale3d(1.1, 1.1, 1.1);
-    }
-
-    40% {
-        -webkit-transform: scale3d(.9, .9, .9);
-        transform: scale3d(.9, .9, .9);
-    }
-
-    60% {
-        opacity: 1;
-        -webkit-transform: scale3d(1.03, 1.03, 1.03);
-        transform: scale3d(1.03, 1.03, 1.03);
-    }
-
-    80% {
-        -webkit-transform: scale3d(.97, .97, .97);
-        transform: scale3d(.97, .97, .97);
-    }
-
-    100% {
-        opacity: 1;
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
+@media (max-width: 768px) {
+    body { padding-top: 60px; } /* Adjust for potentially smaller nav */
+    header { height: 60px; padding: 0 10px; }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
 }
-@media (max-width: 768px) {
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+    /* If using column nav for mobile:
+    nav ul.nav-active { display: flex; }
+    nav ul li { width: 100%; text-align: center; margin: 0; }
+    nav ul li a { display: block; padding: 15px; border-bottom: 1px solid var(--color-border); }
+    nav ul li a.active, nav ul li a:hover { border-bottom-color: var(--color-accent-primary); }
+    */
 
-    .container {
-        padding: 10px;
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    .profile-img { width: 140px; height: 140px; }
+
+    ul.skills-list {
+        grid-template-columns: 1fr; /* Single column for skills on smaller screens */
+        grid-gap: 15px;
     }
+    .experience-item, .education-item, .language-entry {
+        padding: 20px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+    h1 { font-size: 1.8rem; }
+    h1::after { width: 60px; height: 3px; }
+    h2 { font-size: 1.3rem; }
+    h2::after { width: 50px; height: 2px; }
+    .profile-img { width: 120px; height: 120px; }
+    nav ul li a { padding: 10px 12px; font-size: 0.9rem;}
+}
+/* === CERTIFICATES PAGE SPECIFICS === */
+.certificate-item {
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: var(--color-bg-tertiary, #2a2a2a); /* Match other item backgrounds */
+    border-left: 5px solid var(--color-accent-primary, #00aeff); /* Or a new accent color for certificates */
+    border-radius: 0 var(--border-radius-medium, 8px) var(--border-radius-medium, 8px) 0;
+    box-shadow: 0 4px 8px var(--color-shadow-light, rgba(0,0,0,0.15));
+    animation: bounceIn 1s ease-out forwards; /* 'forwards' keeps the end state */
+    opacity: 0; /* Initial state for animation */
+}
+/* Staggered animation for certificate items */
+.certificate-item:nth-child(1) { animation-delay: 0.1s; }
+.certificate-item:nth-child(2) { animation-delay: 0.2s; }
+.certificate-item:nth-child(3) { animation-delay: 0.3s; }
+/* Add more if you have many certificates */
+
+
+.certificate-item h2 { /* Certificate Title */
+    font-size: 1.5rem; /* Adjust as needed */
+    color: var(--color-text-headings, #fff);
+    margin-bottom: 8px;
+}
+/* Remove general H2 ::after accent if it appears and is not desired here */
+.certificate-item h2::after {
+    display: none;
+}
+
+.certificate-item .certificate-issuer,
+.certificate-item .certificate-date {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary, #b3b3b3);
+    margin-bottom: 5px;
+}
+.certificate-item .certificate-issuer strong { /* If you use <strong> for "Issued by:" */
+    color: var(--color-text-primary);
+}
+.certificate-item .certificate-date {
+    font-style: italic;
+}
+.certificate-item p:last-child { /* Ensure last paragraph has no bottom margin if it's the date/issuer */
+     margin-bottom: 0;
 }
