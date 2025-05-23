@@ -1,60 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeSwitcher = document.getElementById('theme-switcher');
-    const body = document.body; // Define body here for broader scope if needed elsewhere
-    const currentYearSpan = document.getElementById('current-year');
+    const htmlElement = document.documentElement; // Target <html> element for theme classes
 
-    // Set current year in footer
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
-    }
+    // NO FOOTER SCRIPT NEEDED
 
     // --- Theme Switching Logic ---
-    const K_THEME_KEY = 'portfolio_theme';
-    const K_LIGHT_THEME_CLASS = 'theme-kyoto-fog'; // Represents the default state (no specific class on body)
-    const K_DARK_THEME_CLASS = 'theme-midnight-mocha';
-    const K_LIGHT_ICON = 'fa-sun'; // Icon to show when theme is DARK (indicates clicking will switch to LIGHT)
-    const K_DARK_ICON = 'fa-moon'; // Icon to show when theme is LIGHT (indicates clicking will switch to DARK)
+    const K_THEME_KEY = 'portfolio_theme_lofi_serenity';
+    const K_LIGHT_THEME_CLASS = 'theme-serene-dawn'; // Default theme
+    const K_DARK_THEME_CLASS = 'theme-quiet-night';
 
+    // Determine initial theme: localStorage, then system preference
     let preferredTheme = localStorage.getItem(K_THEME_KEY);
     if (!preferredTheme) {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            preferredTheme = K_LIGHT_THEME_CLASS;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            preferredTheme = K_DARK_THEME_CLASS;
         } else {
-            preferredTheme = K_DARK_THEME_CLASS; // Default to dark if no preference/localStorage
+            preferredTheme = K_LIGHT_THEME_CLASS; 
         }
     }
     
-    let currentTheme = preferredTheme; // Keep track of the current theme
+    let currentTheme = preferredTheme;
 
     function applyTheme(theme) {
-        body.classList.remove(K_DARK_THEME_CLASS); // Always remove dark to reset to default light styles
-        // Note: K_LIGHT_THEME_CLASS isn't added/removed from body as it's the default CSS :root state.
-        // If you had multiple explicit light themes, you'd manage their classes here too.
-
-        const themeSwitcherIcon = themeSwitcher ? themeSwitcher.querySelector('i') : null; // Check if switcher exists
-
-        if (theme === K_DARK_THEME_CLASS) {
-            body.classList.add(K_DARK_THEME_CLASS);
-            if (themeSwitcherIcon) {
-                themeSwitcherIcon.classList.remove(K_DARK_ICON);
-                themeSwitcherIcon.classList.add(K_LIGHT_ICON);
-            }
-        } else { // Theme is light (Kyoto Fog)
-            if (themeSwitcherIcon) {
-                themeSwitcherIcon.classList.remove(K_LIGHT_ICON);
-                themeSwitcherIcon.classList.add(K_DARK_ICON);
-            }
-        }
+        // Remove all potential theme classes first
+        htmlElement.classList.remove(K_LIGHT_THEME_CLASS, K_DARK_THEME_CLASS);
+        
+        // Add the new theme class
+        htmlElement.classList.add(theme);
+        
         localStorage.setItem(K_THEME_KEY, theme);
         currentTheme = theme; // Update the global tracker
     }
 
-    if (themeSwitcher) { // Ensure the button exists on the page before adding listener
+    if (themeSwitcher) {
         themeSwitcher.addEventListener('click', () => {
             if (currentTheme === K_DARK_THEME_CLASS) {
-                applyTheme(K_LIGHT_THEME_CLASS); // Switch to light
+                applyTheme(K_LIGHT_THEME_CLASS);
             } else {
-                applyTheme(K_DARK_THEME_CLASS); // Switch to dark
+                applyTheme(K_DARK_THEME_CLASS);
             }
         });
     }

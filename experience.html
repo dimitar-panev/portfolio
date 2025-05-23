@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-serene-dawn">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dimitar Panev - Professional Experience</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <header>
-        <nav>
+    <header id="main-header">
+        <nav id="main-nav">
             <ul>
                 <li><a href="index.html">Contact</a></li>
                 <li><a href="experience.html" class="active">Experience</a></li>
@@ -23,62 +23,75 @@
             </ul>
         </nav>
         <button id="theme-switcher" aria-label="Toggle theme">
-            <i class="fas fa-sun"></i> </button>
+            <div class="theme-switcher-icon">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </div>
+        </button>
     </header>
 
     <main class="container">
         <h1>Professional Experience</h1>
 
         <section class="experience-item">
-            <h2 class="job-title">Network Engineer</h2>
-            <p class="company">RTS BG</p>
-            <p class="date"><time datetime="2025-04">April 2025</time> - Present</p>
-        
-            <div class="skills-section">
-                <h3 class="skills-title">Key Responsibilities & Skills:</h3>
-                <ul class="skills-list">
-                    <li><strong>Network Design and Implementation:</strong> Designing and implementing network architectures, including LAN, WAN, and VPN solutions.</li>
-                    <li><strong>Routing and Switching:</strong> Configuring and troubleshooting routers and switches, including VLANs, OSPF, EIGRP, BGP, and STP.</li>
-                    <li><strong>Firewall Configuration:</strong> Setting up and managing firewalls to secure network perimeters.</li>
-                </ul>
+            <div class="item-accent-bar"></div>
+            <div class="item-content">
+                <h2 class="job-title">Network Engineer</h2>
+                <p class="company">RTS BG</p>
+                <p class="date"><time datetime="2025-04">April 2025</time> - Present</p>
+            
+                <div class="skills-section">
+                    <h3 class="skills-title">Key Responsibilities & Skills:</h3>
+                    <ul class="skills-list">
+                        <li><strong>Network Design and Implementation:</strong> Designing and implementing network architectures, including LAN, WAN, and VPN solutions.</li>
+                        <li><strong>Routing and Switching:</strong> Configuring and troubleshooting routers and switches, including VLANs, OSPF, EIGRP, BGP, and STP.</li>
+                        <li><strong>Firewall Configuration:</strong> Setting up and managing firewalls to secure network perimeters.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="experience-item">
-            <h2 class="job-title">Technical Support Associate</h2>
-            <p class="company">University of Library Studies and Information Technologies, Sofia</p>
-            <p class="date"><time datetime="2023-01">January 2023</time> - <time datetime="2025-04">April 2025</time></p>
+            <div class="item-accent-bar"></div>
+            <div class="item-content">
+                <h2 class="job-title">Technical Support Associate</h2>
+                <p class="company">University of Library Studies and Information Technologies, Sofia</p>
+                <p class="date"><time datetime="2023-01">January 2023</time> - <time datetime="2025-04">April 2025</time></p>
 
-            <div class="skills-section">
-                <h3 class="skills-title">Technical Skills:</h3>
-                <ul class="skills-list">
-                    <li>Hardware and Software Troubleshooting: Diagnosing and resolving issues with desktops, laptops, peripherals (printers, scanners), and various software applications (operating systems, office suites, specialized academic software).</li>
-                    <li>Documentation: Creating and maintaining documentation for common issues and solutions.</li>
-                </ul>
-            </div>
+                <div class="skills-section">
+                    <h3 class="skills-title">Technical Skills:</h3>
+                    <ul class="skills-list">
+                        <li>Hardware and Software Troubleshooting: Diagnosing and resolving issues with desktops, laptops, peripherals (printers, scanners), and various software applications (operating systems, office suites, specialized academic software).</li>
+                        <li>Documentation: Creating and maintaining documentation for common issues and solutions.</li>
+                    </ul>
+                </div>
 
-            <div class="skills-section">
-                <h3 class="skills-title">Soft Skills:</h3>
-                <ul class="skills-list">
-                    <li>Communication Skills: Communicating technical information clearly and patiently to users with varying levels of technical expertise. This includes active listening, explaining complex concepts simply, and writing clear instructions.</li>
-                    <li>Documentation: Recording support interactions and solutions for future reference.</li>
-                </ul>
+                <div class="skills-section">
+                    <h3 class="skills-title">Soft Skills:</h3>
+                    <ul class="skills-list">
+                        <li>Communication Skills: Communicating technical information clearly and patiently to users with varying levels of technical expertise. This includes active listening, explaining complex concepts simply, and writing clear instructions.</li>
+                        <li>Documentation: Recording support interactions and solutions for future reference.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="experience-item">
-            <h2 class="job-title">Waiter</h2>
-            <p class="company">F.O.A, Ormos Panagias</p>
-            <p class="date"><time datetime="2022-06">June 2022</time> - <time datetime="2022-08">August 2022</time></p>
-            <div class="skills-section">
-                <h3 class="skills-title">Key Responsibilities & Skills:</h3>
-                <ul class="skills-list">
-                    <li>Provided excellent customer service in a fast-paced environment.</li>
-                    <li>Managed orders and payments accurately and efficiently.</li>
-                    <li>Communicated effectively with a diverse clientele and kitchen staff.</li>
-                    <li>Maintained a clean, organized, and welcoming dining area.</li>
-                    <li>Demonstrated ability to multitask and work effectively under pressure.</li>
-                </ul>
+            <div class="item-accent-bar"></div>
+            <div class="item-content">
+                <h2 class="job-title">Waiter</h2>
+                <p class="company">F.O.A, Ormos Panagias</p>
+                <p class="date"><time datetime="2022-06">June 2022</time> - <time datetime="2022-08">August 2022</time></p>
+                <div class="skills-section">
+                    <h3 class="skills-title">Key Responsibilities & Skills:</h3>
+                    <ul class="skills-list">
+                        <li>Provided excellent customer service in a fast-paced environment.</li>
+                        <li>Managed orders and payments accurately and efficiently.</li>
+                        <li>Communicated effectively with a diverse clientele and kitchen staff.</li>
+                        <li>Maintained a clean, organized, and welcoming dining area.</li>
+                        <li>Demonstrated ability to multitask and work effectively under pressure.</li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>

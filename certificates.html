@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-serene-dawn">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dimitar Panev - Courses and Certificates</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <header>
-        <nav>
+    <header id="main-header">
+        <nav id="main-nav">
             <ul>
                 <li><a href="index.html">Contact</a></li>
                 <li><a href="experience.html">Experience</a></li>
@@ -23,35 +23,53 @@
             </ul>
         </nav>
         <button id="theme-switcher" aria-label="Toggle theme">
-            <i class="fas fa-sun"></i> </button>
+            <div class="theme-switcher-icon">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </div>
+        </button>
     </header>
 
     <main class="container">
         <h1>Courses and Certificates</h1>
 
         <section class="certificate-item">
-            <h2>EnGenius Certified Network Professional</h2>
-            <p class="certificate-issuer">Issued by: <strong>EnGenius Technologies</strong></p>
-            <p class="certificate-date">Issued: April 2025</p>
+            <div class="item-accent-bar"></div>
+            <div class="item-content">
+                <h2>EnGenius Certified Network Professional</h2>
+                <p class="certificate-issuer">Issued by: <strong>EnGenius Technologies</strong></p>
+                <p class="certificate-date">Issued: April 2025</p>
+                <p class="credential-id">Credential ID: <span>62d7b1b8df5726a872017c27</span></p>
+            </div>
         </section>
 
         <section class="certificate-item">
-            <h2>EnGenius Certified Wireless Professional</h2>
-            <p class="certificate-issuer">Issued by: <strong>EnGenius Technologies</strong></p>
-            <p class="certificate-date">Issued: April 2025</p>
+            <div class="item-accent-bar"></div>
+            <div class="item-content">
+                <h2>EnGenius Certified Wireless Professional</h2>
+                <p class="certificate-issuer">Issued by: <strong>EnGenius Technologies</strong></p>
+                <p class="certificate-date">Issued: April 2025</p>
+                <p class="credential-id">Credential ID: <span>62d79d5be7cc397ad00ab374</span></p>
+            </div>
         </section>
 
         <section class="certificate-item">
-            <h2>Programming Hub C# Fundamental Knowledge Certificate</h2>
-            <p class="certificate-issuer">Issued by: <strong>Programming Hub</strong></p>
-            <p class="certificate-date">Issued: May 2024</p>
-            </section>
+            <div class="item-accent-bar"></div>
+            <div class="item-content">
+                <h2>Programming Hub C# Fundamental Knowledge Certificate</h2>
+                <p class="certificate-issuer">Issued by: <strong>Programming Hub</strong></p>
+                <p class="certificate-date">Issued: May 2024</p>
+            </div>
+        </section>
 
         <section class="certificate-item">
-            <h2>CCNA: Introduction to Networks</h2>
-            <p class="certificate-issuer">Issued by: <strong>Cisco Networking Academy</strong></p>
-            <p class="certificate-date">Issued: December 2023</p>
-            </section>
+            <div class="item-accent-bar"></div>
+            <div class="item-content">
+                <h2>CCNA: Introduction to Networks</h2>
+                <p class="certificate-issuer">Issued by: <strong>Cisco Networking Academy</strong></p>
+                <p class="certificate-date">Issued: December 2023</p>
+            </div>
+        </section>
 
     </main>
     <script src="script.js"></script>
