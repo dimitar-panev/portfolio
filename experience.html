@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dimitar Panev - Professional Experience</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
+</head>
 
 <body>
     <header>
@@ -22,14 +22,17 @@
                 <li><a href="certificates.html">Certificates</a></li>
             </ul>
         </nav>
+        <button id="theme-switcher" aria-label="Toggle theme">
+            <i class="fas fa-sun"></i> </button>
     </header>
 
     <main class="container">
         <h1>Professional Experience</h1>
+
         <section class="experience-item">
             <h2 class="job-title">Network Engineer</h2>
             <p class="company">RTS BG</p>
-            <p><time datetime="2025-04">April 2025</time> - Present</p>
+            <p class="date"><time datetime="2025-04">April 2025</time> - Present</p>
         
             <div class="skills-section">
                 <h3 class="skills-title">Key Responsibilities & Skills:</h3>
@@ -40,19 +43,23 @@
                 </ul>
             </div>
         </section>
+
         <section class="experience-item">
-            <h2 class="job-title">Technical Support Associate</h2> <p class="company">University of Library Studies and Information Technologies, Sofia</p>
-            <p><time datetime="2023-01">January 2023</time> - Present</p>
+            <h2 class="job-title">Technical Support Associate</h2>
+            <p class="company">University of Library Studies and Information Technologies, Sofia</p>
+            <p class="date"><time datetime="2023-01">January 2023</time> - <time datetime="2025-04">April 2025</time></p>
 
             <div class="skills-section">
-                <h3 class="skills-title">Technical Skills:</h3> <ul class="skills-list">
+                <h3 class="skills-title">Technical Skills:</h3>
+                <ul class="skills-list">
                     <li>Hardware and Software Troubleshooting: Diagnosing and resolving issues with desktops, laptops, peripherals (printers, scanners), and various software applications (operating systems, office suites, specialized academic software).</li>
                     <li>Documentation: Creating and maintaining documentation for common issues and solutions.</li>
                 </ul>
             </div>
 
             <div class="skills-section">
-                <h3 class="skills-title">Soft Skills:</h3> <ul class="skills-list">
+                <h3 class="skills-title">Soft Skills:</h3>
+                <ul class="skills-list">
                     <li>Communication Skills: Communicating technical information clearly and patiently to users with varying levels of technical expertise. This includes active listening, explaining complex concepts simply, and writing clear instructions.</li>
                     <li>Documentation: Recording support interactions and solutions for future reference.</li>
                 </ul>
@@ -60,10 +67,12 @@
         </section>
 
         <section class="experience-item">
-            <h2 class="job-title">Waiter</h2> <p class="company">F.O.A, Ormos Panagias</p>
-            <p><time datetime="2022-06">June 2022</time> - <time datetime="2022-08">August 2022</time></p>
+            <h2 class="job-title">Waiter</h2>
+            <p class="company">F.O.A, Ormos Panagias</p>
+            <p class="date"><time datetime="2022-06">June 2022</time> - <time datetime="2022-08">August 2022</time></p>
             <div class="skills-section">
-                <h3 class="skills-title">Key Responsibilities & Skills:</h3> <ul class="skills-list">
+                <h3 class="skills-title">Key Responsibilities & Skills:</h3>
+                <ul class="skills-list">
                     <li>Provided excellent customer service in a fast-paced environment.</li>
                     <li>Managed orders and payments accurately and efficiently.</li>
                     <li>Communicated effectively with a diverse clientele and kitchen staff.</li>
@@ -73,5 +82,6 @@
             </div>
         </section>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

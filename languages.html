@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dimitar Panev - Languages</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -22,31 +22,37 @@
                 <li><a href="certificates.html">Certificates</a></li>
             </ul>
         </nav>
+        <button id="theme-switcher" aria-label="Toggle theme">
+            <i class="fas fa-sun"></i>
+        </button>
     </header>
 
     <main class="container">
         <h1>Languages</h1>
 
-        <dl class="languages-list">
-            <div class="language-entry">
-                <dt>Bulgarian</dt>
-                <dd>Native Language</dd>
-            </div>
+        <div class="language-items-container">
+            <dl class="languages-list">
+                <div class="language-entry">
+                    <dt>Bulgarian</dt>
+                    <dd>Native Language</dd>
+                </div>
 
-            <div class="language-entry">
-                <dt>English</dt>
-                <dd>Understanding: Expert</dd>
-                <dd>Speaking: Intermediate</dd>
-                <dd>Writing: Intermediate</dd>
-            </div>
+                <div class="language-entry">
+                    <dt>English</dt>
+                    <dd>Understanding: Expert</dd>
+                    <dd>Speaking: Intermediate</dd>
+                    <dd>Writing: Intermediate</dd>
+                </div>
 
-            <div class="language-entry">
-                <dt>German</dt>
-                <dd>Understanding: Beginner</dd>
-                <dd>Speaking: Beginner</dd>
-                <dd>Writing: Beginner</dd>
-            </div>
-        </dl>
+                <div class="language-entry">
+                    <dt>German</dt>
+                    <dd>Understanding: Beginner</dd>
+                    <dd>Speaking: Beginner</dd>
+                    <dd>Writing: Beginner</dd>
+                </div>
+            </dl>
+        </div>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
