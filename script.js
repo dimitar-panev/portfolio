@@ -1,8 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeSwitcher = document.getElementById('theme-switcher');
     const htmlElement = document.documentElement; // Target <html> element for theme classes
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mainNav = document.getElementById('main-nav');
 
-    // NO FOOTER SCRIPT NEEDED
+    // --- Mobile Menu Toggle ---
+    if (mobileMenuToggle && mainNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mainNav.classList.toggle('mobile-open');
+        });
+
+        // Close menu when clicking on a navigation link
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mainNav.classList.remove('mobile-open');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!mainNav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                mobileMenuToggle.classList.remove('active');
+                mainNav.classList.remove('mobile-open');
+            }
+        });
+    }
+
+    // --- Scroll Progress Indicator ---
+    const createScrollProgress = () => {
+        const progressBar = document.createElement('div');
+        progressBar.id = 'scroll-progress';
+        document.body.appendChild(progressBar);
+
+        const updateScrollProgress = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            progressBar.style.width = scrollPercentage + '%';
+        };
+
+        window.addEventListener('scroll', updateScrollProgress);
+        updateScrollProgress();
+    };
+    createScrollProgress();
 
     // --- Theme Switching Logic ---
     const K_THEME_KEY = 'portfolio_theme_lofi_serenity';
@@ -44,5 +87,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Apply initial theme on load
     applyTheme(currentTheme);
+
+    // --- Smooth Scroll for Internal Links ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // --- Intersection Observer for Fade-in Animations ---
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections and items
+    const elementsToObserve = document.querySelectorAll(
+        '.experience-item, .education-item, .language-entry, .certificate-item, .skill-category'
+    );
+    
+    elementsToObserve.forEach(el => {
+        observer.observe(el);
+    });
 
 });
