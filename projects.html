@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-serene-dawn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimitar Panev - Projects</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header id="main-header">
+        <button id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Contact</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="languages.html">Languages</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="certificates.html">Certificates</a></li>
+            </ul>
+        </nav>
+        <button id="theme-switcher" aria-label="Toggle theme">
+            <div class="theme-switcher-icon">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </div>
+        </button>
+    </header>
+
+    <main class="container">
+        <h1>Projects</h1>
+        <p class="projects-intro">Selected work, experiments, and practical builds that reflect my focus on infrastructure, support, and clean technical execution.</p>
+
+        <div class="projects-grid">
+            <article class="project-card">
+                <div class="project-card-bar"></div>
+                <div class="project-card-body">
+                    <p class="project-kicker">Tech Blog</p>
+                    <h2>DP Tech Blog</h2>
+                    <p class="project-summary">A minimalist, static technology blog built with Hugo and the Risotto theme. It focuses on phones, PCs and laptops, hardware and software, photography, and technology overall.</p>
+                    <ul class="project-tags">
+                        <li>Hugo</li>
+                        <li>Markdown</li>
+                        <li>TOML</li>
+                        <li>GitHub Pages</li>
+                    </ul>
+                    <ul class="project-points">
+                        <li>Built with Hugo Extended and the Risotto base16-dark theme.</li>
+                        <li>Deployed automatically to GitHub Pages through GitHub Actions CI/CD.</li>
+                        <li>Repo: <a href="https://github.com/dimitar-panev/hugo-dptech" target="_blank" rel="noopener noreferrer">github.com/dimitar-panev/hugo-dptech</a></li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/dimitar-panev/hugo-dptech" target="_blank" rel="noopener noreferrer">View Repository</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-card-bar"></div>
+                <div class="project-card-body">
+                    <p class="project-kicker">Homelab</p>
+                    <h2>DP Homelab</h2>
+                    <p class="project-summary">A modular, self-hosted homelab infrastructure deployed on an Ubuntu virtual machine via Proxmox. It contains Docker Compose configurations and deployment structures for core network services.</p>
+                    <ul class="project-tags">
+                        <li>Docker</li>
+                        <li>Proxmox</li>
+                        <li>Ubuntu VM</li>
+                        <li>Self-Hosted</li>
+                    </ul>
+                    <ul class="project-points">
+                        <li>Uses a modular Docker design with each service isolated in its own directory.</li>
+                        <li>Focuses on security-first configuration, secrets handling, and persistent state management.</li>
+                        <li>Repo: <a href="https://github.com/dimitar-panev/dp-homelab" target="_blank" rel="noopener noreferrer">github.com/dimitar-panev/dp-homelab</a></li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/dimitar-panev/dp-homelab" target="_blank" rel="noopener noreferrer">View Repository</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-card-bar"></div>
+                <div class="project-card-body">
+                    <p class="project-kicker">Active Work</p>
+                    <h2>Portfolio Website</h2>
+                    <p class="project-summary">This site is the live portfolio itself, and I’m actively refining the design, content, and presentation as I build it out.</p>
+                    <ul class="project-tags">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>UI Design</li>
+                    </ul>
+                    <ul class="project-points">
+                        <li>Combines minimal layout choices with motion and interaction details.</li>
+                        <li>Serves as an ongoing showcase of technical and design improvements.</li>
+                        <li>Live site: <a href="index.html">Current portfolio</a></li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="index.html">View Live Site</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

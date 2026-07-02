@@ -29,24 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Scroll Progress Indicator ---
-    const createScrollProgress = () => {
-        const progressBar = document.createElement('div');
-        progressBar.id = 'scroll-progress';
-        document.body.appendChild(progressBar);
-
-        const updateScrollProgress = () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercentage = (scrollTop / scrollHeight) * 100;
-            progressBar.style.width = scrollPercentage + '%';
-        };
-
-        window.addEventListener('scroll', updateScrollProgress);
-        updateScrollProgress();
-    };
-    createScrollProgress();
-
     // --- Theme Switching Logic ---
     const K_THEME_KEY = 'portfolio_theme_lofi_serenity';
     const K_LIGHT_THEME_CLASS = 'theme-serene-dawn'; // Default theme
@@ -87,55 +69,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Apply initial theme on load
     applyTheme(currentTheme);
-
-    // --- Smooth Scroll for Internal Links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // --- Intersection Observer for Fade-in Animations ---
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const observer = motionReduced
-        ? null
-        : new IntersectionObserver((entries, currentObserver) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    currentObserver.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-    // Observe all sections and items
-    const elementsToObserve = document.querySelectorAll(
-        '.experience-item, .education-item, .language-entry, .certificate-item, .skill-category'
-    );
-    
-    elementsToObserve.forEach((el, index) => {
-        el.classList.add('reveal-on-scroll');
-        el.style.setProperty('--reveal-delay', `${index * 70}ms`);
-
-        if (motionReduced) {
-            el.classList.add('is-visible');
-            return;
-        }
-
-        observer.observe(el);
-    });
 
 });
