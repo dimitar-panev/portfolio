@@ -365,20 +365,46 @@ html.theme-quiet-night #theme-switcher .moon-icon { opacity: 0; } /* Moon hidden
 .experience-item .skills-section ul li strong { margin-right: 0.3em; font-weight: 500; color: var(--color-text-primary); }
 
 /* === SKILLS PAGE (Grid) === */
-.skill-category { margin-bottom: 45px; }
+.skills-intro {
+    max-width: 760px;
+    margin: -0.2em auto 2.25em;
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+}
+
+.skill-category {
+    margin-bottom: 24px;
+    padding: 24px;
+    border-radius: var(--border-radius-large);
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 8px 22px var(--color-shadow-soft);
+    transition: var(--global-transition);
+    transition-property: transform, box-shadow, background-color, border-color;
+}
+.skill-category:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px var(--color-shadow-medium);
+}
+.skill-category > h2 {
+    margin-top: 0;
+    margin-bottom: 1.1em;
+    border-bottom-color: var(--color-border);
+}
 .skill-category:nth-of-type(1) { animation-delay: 0.15s; }
 .skill-category:nth-of-type(2) { animation-delay: 0.25s; }
 /* .skill-category H2 already styled by "main.container > h2" */
 
 .skill-category > ul.skills-list {
     list-style: none; padding: 0; display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-gap: 16px;
 }
 .skill-category > ul.skills-list li {
     background-color: var(--color-bg-tertiary);
     color: var(--color-text-primary);
-    padding: 18px 22px; border-radius: var(--border-radius-base);
+    padding: 16px 18px; border-radius: 999px;
     font-weight: 500; font-size: 0.9rem;
     display: flex; align-items: center;
     opacity: 1;
@@ -395,7 +421,7 @@ html.theme-quiet-night #theme-switcher .moon-icon { opacity: 0; } /* Moon hidden
     transition: color 0.4s ease;
 }
 .skill-category > ul.skills-list li:hover {
-    transform: translateY(-4px) scale(1.03);
+    transform: translateY(-3px) scale(1.01);
     background-color: var(--color-accent-primary); color: var(--color-text-on-accent);
     box-shadow: 0 6px 18px var(--color-shadow-soft);
 }
