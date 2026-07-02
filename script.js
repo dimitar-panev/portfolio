@@ -108,21 +108,33 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
+    const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const observer = motionReduced
+        ? null
+        : new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    currentObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
     // Observe all sections and items
     const elementsToObserve = document.querySelectorAll(
         '.experience-item, .education-item, .language-entry, .certificate-item, .skill-category'
     );
     
-    elementsToObserve.forEach(el => {
+    elementsToObserve.forEach((el, index) => {
+        el.classList.add('reveal-on-scroll');
+        el.style.setProperty('--reveal-delay', `${index * 70}ms`);
+
+        if (motionReduced) {
+            el.classList.add('is-visible');
+            return;
+        }
+
         observer.observe(el);
     });
 
